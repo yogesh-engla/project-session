@@ -1,0 +1,55 @@
+
+{% extends 'app/home.html' %}
+{% block content %}
+<div class="user" style="color: white; margin: 100px 0px -120px 1580px;" >
+  <h1>{{data1 | default:"welcome guest"}}</h1>
+</div>
+    <section class="about" id="about">
+        <h1 class="heading"><span>LOG</span>IN</h1>
+    </section>
+        <div class="container1">
+          <div class="title"><h1> {{error}} </h1></div>
+            <div class="content">
+              <form action=" {% url "logindata" %}" method='post'>
+
+                {% csrf_token %}
+                <div class="user-details">
+                  <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="text" name='email' placeholder="Enter your email" required>
+                  </div>
+                  
+                  <div class="input-box">
+                    <span class="details"> Password</span>
+                    <input type="text" name='password' placeholder="Confirm your password" required>
+                  </div>
+                </div>
+                <div class="gender-details">
+                  <input type="radio" name="gender" id="dot-1">
+                  <input type="radio" name="gender" id="dot-2">
+                  <input type="radio" name="gender" id="dot-3">
+                  <span class="gender-title">Gender</span>
+                  <div class="category">
+                    <label for="dot-1">
+                    <span class="dot one"></span>
+                    <span class="gender">Male</span>
+                  </label>
+                  <label for="dot-2">
+                    <span class="dot two"></span>
+                    <span class="gender">Female</span>
+                  </label>
+                  <label for="dot-3">
+                    <span class="dot three"></span>
+                    <span class="gender">Prefer not to say</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="button">
+                  <input type="submit" value="SIGN-UP">
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+{% endblock %}
